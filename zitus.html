@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZITUS.ID</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+    body {
+      background: #181a20;
+      color: #fff;
+      min-height: 100vh;
+    }
+    .topbar {
+      width: 100%;
+      background: #10131a;
+      color: #fff;
+      padding: 12px 8vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .discord-logo {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      margin-right: 12px;
+      transition: filter 0.2s;
+      vertical-align: middle;
+      margin-top: 8px;
+      margin-right: 0;
+    }
+    .discord-logo:hover {
+      filter: brightness(1.6) drop-shadow(0 0 6px #7289da);
+    }
+    .name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+      text-decoration: none;
+      text-shadow:
+       0 0 12px #fff,
+       0 0 24px #7289da,
+       0 0 48px #7289da,
+       0 0 64px #fff;
+      animation: neon-glow 1.9s infinite alternate;
+    }
+    @keyframes neon-glow {
+        from {
+            text-shadow:
+            0 0 8px #fff, 
+            0 0 16px #7289da, 
+            0 0 32px #7289da,
+            0 0 32px #fff;
+         }
+         to {
+            text-shadow: 
+             0 0 24px #fff,
+             0 0 48px #7289da, 
+             0 0 96px #7289da,
+             0 0 64px #fff;
+         }
+    }
+    .content {
+      padding-top: 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .aura-wrapper {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 60px auto 32px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 200px;
+      margin-left: 200px;
+    }
+    .aura-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,255,0.3) 0%, rgba(0,0,0,0) 70%);
+      animation: auraPulse 2s infinite ease-in-out;
+      z-index: 0;
+    }
+    .character {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      image-rendering: pixelated;
+      z-index: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+    .zitus-name {
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      margin-top: 250px;
+      font-size: 2rem;
+      text-shadow: 0 0 8px #7289da;
+      min-height: 60px;
+      letter-spacing: 2px;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+    #zitusName {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+    }
+    @keyframes auraPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+    .contact-box {
+      background: #23272a;
+      padding: 32px 32px 24px 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      color: #fff;
+      min-width: 500px;
+      margin-top: -330px;
+      margin-left: 600px;
+    }
+    .contact-box h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .contact-box table {
+      width: 100%;
+    }
+    .contact-box label {
+      font-size: 1rem;
+    }
+    .contact-box input[type="text"],
+    .contact-box input[type="email"],
+    .contact-box input[type="tel"],
+    .contact-box textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border: none;
+      border-radius: 6px;
+      background: #181a20;
+      color: #fff;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      resize: none;
+    }
+    .contact-box input:focus,
+    .contact-box textarea:focus {
+      outline: 2px solid #7289da;
+    }
+    .contact-box button {
+      width: 40%;
+      padding: 10px 0;
+      background: #7289da;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-left: 260px;
+    }
+    .contact-box button:hover {
+      background: #5865f2;
+    }
+    .move-right {
+      transform: translateX(0);
+      transition: transform 0.3s;
+    }
+    .move-left {
+      transform: translateX(0);
+      transition: transform 0.3s;
+    }
+    @media (max-width: 600px) {
+      .contact-box {
+        min-width: 90vw;
+        margin-top: 24px;
+        margin-left: 0;
+        padding: 16px 4vw;
+      }
+      .contact-box button {
+        margin-left: 0;
+        width: 60%;
+      }
+      .aura-wrapper {
+        margin-top: 24px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      .contact-container {
+        padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <span class="name">Zitus_</span>
+    <a href="https://discord.gg/zitus" target="_blank" rel="noopener">
+      <img class="discord-logo" src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/discord.svg" alt="Discord Logo">
+    </a>
+  </div>
+  <div class="contact-container">
+    <div class="aura-wrapper">
+      <div class="aura-effect"></div>
+      <img class="character" src="https://cdn.discordapp.com/attachments/1374290752364089387/1375022975983550584/fb3e958a3105a99eef2d7d62096de9-unscreen.gif?ex=68302d70&is=682edbf0&hm=ae5992213440add2d83d60dbc87b96032ec02fedd61d4d1ea5a99d3e5a07f8c7&" alt="Character GIF">
+      <div class="zitus-name"><span id="zitusName"></span></div>
+    </div>
+    <form class="contact-box">
+      <h2>Contact Us</h2>
+      <table>
+        <tr>
+          <td><label for="name">Name</label></td>
+          <td><input type="text" id="name" name="name" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+        <tr>
+          <td><label for="phone">Phone</label></td>
+          <td><input type="tel" id="phone" name="phone" required></td>
+        </tr>
+        <tr>
+          <td><label for="message">Message</label></td>
+          <td><textarea id="message" name="message" rows="3" required></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="position:relative; height:85px;">
+            <button type="submit" style="position:absolute; right:0px; bottom:40px;">Send</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <script src='main.js'></script>
+</body>
+</html>
